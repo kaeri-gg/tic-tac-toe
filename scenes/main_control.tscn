@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://byrhgcx23soud"]
+[gd_scene load_steps=7 format=3 uid="uid://byrhgcx23soud"]
 
 [ext_resource type="Theme" uid="uid://bnwlm45gyye4k" path="res://themes/button_theme.tres" id="1_3tiwv"]
+[ext_resource type="Texture2D" uid="uid://do51plbifj25w" path="res://themes/new_gradient_texture_2d.tres" id="1_422ur"]
 [ext_resource type="Script" uid="uid://dytmdsosylnsj" path="res://scripts/grid_container.gd" id="1_d73ye"]
 [ext_resource type="Theme" uid="uid://5sk8ysdmokhn" path="res://themes/label_theme.tres" id="2_3jnx6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jnx6"]
-bg_color = Color(0.6901961, 0.7137255, 0.9647059, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8jdwr"]
+texture = ExtResource("1_422ur")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d73ye"]
 draw_center = false
@@ -25,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3jnx6")
+theme_override_styles/panel = SubResource("StyleBoxTexture_8jdwr")
 
 [node name="GridPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -57,6 +58,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_3tiwv")
+theme_override_colors/font_color = Color(0.64705884, 0.6156863, 0.9254902, 1)
 text = "X"
 
 [node name="Button2" type="Button" parent="GridPanel/GridContainer"]
@@ -64,6 +66,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_3tiwv")
+theme_override_colors/font_color = Color(0.7882353, 0.68235296, 0.88235295, 1)
 text = "O"
 
 [node name="Button3" type="Button" parent="GridPanel/GridContainer"]
@@ -71,6 +74,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_3tiwv")
+theme_override_colors/font_color = Color(0.94509804, 0.7607843, 0.8392157, 1)
 text = "X"
 
 [node name="Button4" type="Button" parent="GridPanel/GridContainer"]
@@ -78,6 +82,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_3tiwv")
+theme_override_colors/font_color = Color(0.64705884, 0.6156863, 0.9254902, 1)
 text = "O"
 
 [node name="Button5" type="Button" parent="GridPanel/GridContainer"]
@@ -85,6 +90,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_3tiwv")
+theme_override_colors/font_color = Color(0.7882353, 0.68235296, 0.88235295, 1)
 text = "X"
 
 [node name="Button6" type="Button" parent="GridPanel/GridContainer"]
@@ -92,6 +98,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_3tiwv")
+theme_override_colors/font_color = Color(0.94509804, 0.7607843, 0.8392157, 1)
 text = "O"
 
 [node name="Button7" type="Button" parent="GridPanel/GridContainer"]
@@ -99,6 +106,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_3tiwv")
+theme_override_colors/font_color = Color(0.64705884, 0.6156863, 0.9254902, 1)
 text = "X"
 
 [node name="Button8" type="Button" parent="GridPanel/GridContainer"]
@@ -106,6 +114,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_3tiwv")
+theme_override_colors/font_color = Color(0.7882353, 0.68235296, 0.88235295, 1)
 text = "X"
 
 [node name="Button9" type="Button" parent="GridPanel/GridContainer"]
@@ -113,6 +122,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_3tiwv")
+theme_override_colors/font_color = Color(0.94509804, 0.7607843, 0.8392157, 1)
 text = "X"
 
 [node name="TextPanelTop" type="Panel" parent="."]
@@ -152,8 +162,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme = ExtResource("2_3jnx6")
-theme_override_colors/font_color = Color(0.22352941, 0.35686275, 1, 1)
-theme_override_font_sizes/font_size = 45
+theme_override_colors/font_color = Color(0.33951068, 0.2790801, 0.71305114, 1)
 text = "0"
 horizontal_alignment = 1
 
@@ -162,8 +171,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme = ExtResource("2_3jnx6")
-theme_override_colors/font_color = Color(0.22352941, 0.35686275, 1, 1)
-theme_override_font_sizes/font_size = 45
+theme_override_colors/font_color = Color(0.33951068, 0.2790801, 0.71305114, 1)
 text = ":"
 horizontal_alignment = 1
 
@@ -173,8 +181,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme = ExtResource("2_3jnx6")
-theme_override_colors/font_color = Color(0.22352941, 0.35686275, 1, 1)
-theme_override_font_sizes/font_size = 45
+theme_override_colors/font_color = Color(0.33951068, 0.2790801, 0.71305114, 1)
 text = "0"
 horizontal_alignment = 1
 
