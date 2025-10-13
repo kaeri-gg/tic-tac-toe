@@ -4,6 +4,8 @@ extends GridContainer
 
 @onready var player_1_score_ui: Label = %Player_1_Score
 @onready var player_2_score_ui: Label = %Player_2_Score
+@onready var reset_button: Button = %Reset
+
 @onready var message: Label = %Message
 
 
@@ -36,6 +38,8 @@ func _ready():
 			buttons.push_back(node)
 			reset(node)
 			bind_event_to(node)
+	reset_button.pressed.connect(reset_game)
+	
 
 # this function will be called for all buttons
 func on_button_pressed(button: Button):
@@ -120,9 +124,11 @@ func end_game() -> void:
 func reset(button: Button) -> void:
 	button.text = ''
 	message.text = ''
+	button.disabled = false
 	
-func reset_game(buttons: Array[Button]) -> void:
+func reset_game() -> void:
 	turn = 0
 	game_ended = false
+	
 	for button in buttons:
 		reset(button)

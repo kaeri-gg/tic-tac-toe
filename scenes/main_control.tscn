@@ -42,18 +42,23 @@ offset_bottom = 375.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="GridPanel"]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="GridPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="GridContainer" type="GridContainer" parent="GridPanel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 columns = 3
 script = ExtResource("1_d73ye")
 
-[node name="Button" type="Button" parent="GridPanel/GridContainer"]
+[node name="Button" type="Button" parent="GridPanel/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -61,7 +66,7 @@ theme = ExtResource("1_3tiwv")
 theme_override_colors/font_color = Color(0.64705884, 0.6156863, 0.9254902, 1)
 text = "X"
 
-[node name="Button2" type="Button" parent="GridPanel/GridContainer"]
+[node name="Button2" type="Button" parent="GridPanel/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -69,7 +74,7 @@ theme = ExtResource("1_3tiwv")
 theme_override_colors/font_color = Color(0.7882353, 0.68235296, 0.88235295, 1)
 text = "O"
 
-[node name="Button3" type="Button" parent="GridPanel/GridContainer"]
+[node name="Button3" type="Button" parent="GridPanel/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -77,7 +82,7 @@ theme = ExtResource("1_3tiwv")
 theme_override_colors/font_color = Color(0.94509804, 0.7607843, 0.8392157, 1)
 text = "X"
 
-[node name="Button4" type="Button" parent="GridPanel/GridContainer"]
+[node name="Button4" type="Button" parent="GridPanel/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -85,7 +90,7 @@ theme = ExtResource("1_3tiwv")
 theme_override_colors/font_color = Color(0.64705884, 0.6156863, 0.9254902, 1)
 text = "O"
 
-[node name="Button5" type="Button" parent="GridPanel/GridContainer"]
+[node name="Button5" type="Button" parent="GridPanel/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -93,7 +98,7 @@ theme = ExtResource("1_3tiwv")
 theme_override_colors/font_color = Color(0.7882353, 0.68235296, 0.88235295, 1)
 text = "X"
 
-[node name="Button6" type="Button" parent="GridPanel/GridContainer"]
+[node name="Button6" type="Button" parent="GridPanel/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -101,7 +106,7 @@ theme = ExtResource("1_3tiwv")
 theme_override_colors/font_color = Color(0.94509804, 0.7607843, 0.8392157, 1)
 text = "O"
 
-[node name="Button7" type="Button" parent="GridPanel/GridContainer"]
+[node name="Button7" type="Button" parent="GridPanel/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -109,7 +114,7 @@ theme = ExtResource("1_3tiwv")
 theme_override_colors/font_color = Color(0.64705884, 0.6156863, 0.9254902, 1)
 text = "X"
 
-[node name="Button8" type="Button" parent="GridPanel/GridContainer"]
+[node name="Button8" type="Button" parent="GridPanel/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -117,7 +122,7 @@ theme = ExtResource("1_3tiwv")
 theme_override_colors/font_color = Color(0.7882353, 0.68235296, 0.88235295, 1)
 text = "X"
 
-[node name="Button9" type="Button" parent="GridPanel/GridContainer"]
+[node name="Button9" type="Button" parent="GridPanel/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -138,25 +143,29 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 77.0
 grow_horizontal = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextPanelTop/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextPanelTop/MarginContainer"]
 layout_mode = 2
 
-[node name="Player_1" type="Label" parent="TextPanelTop/MarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TextPanelTop/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Player_1" type="Label" parent="TextPanelTop/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme = ExtResource("2_3jnx6")
-text = "Player : X
-"
+text = "Player : X"
+vertical_alignment = 1
 
-[node name="Score" type="HBoxContainer" parent="TextPanelTop/MarginContainer/HBoxContainer"]
+[node name="Score" type="HBoxContainer" parent="TextPanelTop/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Player_1_Score" type="Label" parent="TextPanelTop/MarginContainer/HBoxContainer/Score"]
+[node name="Player_1_Score" type="Label" parent="TextPanelTop/MarginContainer/VBoxContainer/HBoxContainer/Score"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -166,7 +175,7 @@ theme_override_colors/font_color = Color(0.33951068, 0.2790801, 0.71305114, 1)
 text = "0"
 horizontal_alignment = 1
 
-[node name="Separator" type="Label" parent="TextPanelTop/MarginContainer/HBoxContainer/Score"]
+[node name="Separator" type="Label" parent="TextPanelTop/MarginContainer/VBoxContainer/HBoxContainer/Score"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
@@ -175,7 +184,7 @@ theme_override_colors/font_color = Color(0.33951068, 0.2790801, 0.71305114, 1)
 text = ":"
 horizontal_alignment = 1
 
-[node name="Player_2_Score" type="Label" parent="TextPanelTop/MarginContainer/HBoxContainer/Score"]
+[node name="Player_2_Score" type="Label" parent="TextPanelTop/MarginContainer/VBoxContainer/HBoxContainer/Score"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -185,13 +194,27 @@ theme_override_colors/font_color = Color(0.33951068, 0.2790801, 0.71305114, 1)
 text = "0"
 horizontal_alignment = 1
 
-[node name="Player_2" type="Label" parent="TextPanelTop/MarginContainer/HBoxContainer"]
+[node name="Player_2" type="Label" parent="TextPanelTop/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme = ExtResource("2_3jnx6")
 text = "O : Player"
 horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TextPanelTop/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_bottom = 30
+
+[node name="Message" type="Label" parent="TextPanelTop/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_3jnx6")
+theme_override_colors/font_color = Color(0.01525536, 7.219613e-08, 0.2028073, 1)
+text = "Player X wins!"
+horizontal_alignment = 1
 
 [node name="TextPanelBottom" type="Panel" parent="."]
 layout_mode = 1
@@ -205,11 +228,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_d73ye")
 
 [node name="MarginContainer" type="MarginContainer" parent="TextPanelBottom"]
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -37.0
+offset_left = -223.0
+offset_top = -184.0
+offset_right = 223.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 50
@@ -217,13 +243,10 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextPanelBottom/MarginContainer"]
-layout_mode = 2
-
-[node name="Message" type="Label" parent="TextPanelBottom/MarginContainer/VBoxContainer"]
+[node name="Reset" type="Button" parent="TextPanelBottom/MarginContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("2_3jnx6")
-theme_override_colors/font_color = Color(0.01525536, 7.219613e-08, 0.2028073, 1)
-text = "Player X wins!"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 22
+text = "Reset"
