@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://byrhgcx23soud"]
+[gd_scene load_steps=6 format=3 uid="uid://byrhgcx23soud"]
 
 [ext_resource type="Theme" uid="uid://bnwlm45gyye4k" path="res://themes/button_theme.tres" id="1_3tiwv"]
 [ext_resource type="Script" uid="uid://dytmdsosylnsj" path="res://scripts/grid_container.gd" id="1_d73ye"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jnx6"]
 bg_color = Color(0.6901961, 0.7137255, 0.9647059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d73ye"]
+draw_center = false
 
 [node name="MainControl" type="Control"]
 layout_mode = 3
@@ -31,10 +34,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -275.0
-offset_top = -275.0
-offset_right = 275.0
-offset_bottom = 275.0
+offset_left = -375.0
+offset_top = -375.0
+offset_right = 375.0
+offset_bottom = 375.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -112,13 +115,14 @@ size_flags_vertical = 3
 theme = ExtResource("1_3tiwv")
 text = "X"
 
-[node name="TextPanel" type="Panel" parent="."]
+[node name="TextPanelTop" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d73ye")
 
-[node name="MarginContainer" type="MarginContainer" parent="TextPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="TextPanelTop"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -128,10 +132,10 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextPanel/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TextPanelTop/MarginContainer"]
 layout_mode = 2
 
-[node name="Player_1" type="Label" parent="TextPanel/MarginContainer/HBoxContainer"]
+[node name="Player_1" type="Label" parent="TextPanelTop/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
@@ -139,10 +143,10 @@ theme = ExtResource("2_3jnx6")
 text = "Player : X
 "
 
-[node name="Score" type="HBoxContainer" parent="TextPanel/MarginContainer/HBoxContainer"]
+[node name="Score" type="HBoxContainer" parent="TextPanelTop/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Player_1_Score" type="Label" parent="TextPanel/MarginContainer/HBoxContainer/Score"]
+[node name="Player_1_Score" type="Label" parent="TextPanelTop/MarginContainer/HBoxContainer/Score"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -153,7 +157,7 @@ theme_override_font_sizes/font_size = 45
 text = "0"
 horizontal_alignment = 1
 
-[node name="Separator" type="Label" parent="TextPanel/MarginContainer/HBoxContainer/Score"]
+[node name="Separator" type="Label" parent="TextPanelTop/MarginContainer/HBoxContainer/Score"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
@@ -163,7 +167,7 @@ theme_override_font_sizes/font_size = 45
 text = ":"
 horizontal_alignment = 1
 
-[node name="Player_2_Score" type="Label" parent="TextPanel/MarginContainer/HBoxContainer/Score"]
+[node name="Player_2_Score" type="Label" parent="TextPanelTop/MarginContainer/HBoxContainer/Score"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -174,10 +178,45 @@ theme_override_font_sizes/font_size = 45
 text = "0"
 horizontal_alignment = 1
 
-[node name="Player_2" type="Label" parent="TextPanel/MarginContainer/HBoxContainer"]
+[node name="Player_2" type="Label" parent="TextPanelTop/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme = ExtResource("2_3jnx6")
 text = "O : Player"
 horizontal_alignment = 2
+
+[node name="TextPanelBottom" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d73ye")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextPanelBottom"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextPanelBottom/MarginContainer"]
+layout_mode = 2
+
+[node name="Message" type="Label" parent="TextPanelBottom/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_3jnx6")
+theme_override_colors/font_color = Color(0.01525536, 7.219613e-08, 0.2028073, 1)
+text = "Player X wins!"
+horizontal_alignment = 1

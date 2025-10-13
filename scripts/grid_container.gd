@@ -4,6 +4,8 @@ extends GridContainer
 
 @onready var player_1_score_ui: Label = %Player_1_Score
 @onready var player_2_score_ui: Label = %Player_2_Score
+@onready var message: Label = %Message
+
 
 var buttons: Array[Button]
 var turn: int = 0
@@ -58,6 +60,7 @@ func on_button_pressed(button: Button):
 		end_game()
 		
 	elif is_tie:
+		message.text = "It's a tie!"
 		end_game()
 
 func bind_event_to(button: Button) -> void:
@@ -92,6 +95,7 @@ func get_winner_indexes(symbol: String) -> Array:
 				wins.push_back(index)
 		if wins.size() == GRID_LENGTHS:
 			# we got a winner~
+			message.text = "Player " + str(symbol) + " wins!"
 			return wins
 	# no wins
 	return []
@@ -105,7 +109,6 @@ func add_score(button: Button) -> void:
 func update_score() -> void:
 	player_1_score_ui.text = str(player1_score)
 	player_2_score_ui.text = str(player2_score)
-	# add label to update that its a tie
 	
 func highlight(winners_indexes: Array) -> void:
 	for index in winners_indexes:
@@ -116,7 +119,8 @@ func end_game() -> void:
 
 func reset(button: Button) -> void:
 	button.text = ''
-
+	message.text = ''
+	
 func reset_game(buttons: Array[Button]) -> void:
 	turn = 0
 	game_ended = false
