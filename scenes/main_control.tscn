@@ -1,0 +1,183 @@
+[gd_scene load_steps=5 format=3 uid="uid://byrhgcx23soud"]
+
+[ext_resource type="Theme" uid="uid://bnwlm45gyye4k" path="res://themes/button_theme.tres" id="1_3tiwv"]
+[ext_resource type="Script" uid="uid://dytmdsosylnsj" path="res://scripts/grid_container.gd" id="1_d73ye"]
+[ext_resource type="Theme" uid="uid://5sk8ysdmokhn" path="res://themes/label_theme.tres" id="2_3jnx6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jnx6"]
+bg_color = Color(0.6901961, 0.7137255, 0.9647059, 1)
+
+[node name="MainControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3jnx6")
+
+[node name="GridPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -275.0
+offset_right = 275.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="GridPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+script = ExtResource("1_d73ye")
+
+[node name="Button" type="Button" parent="GridPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_3tiwv")
+text = "X"
+
+[node name="Button2" type="Button" parent="GridPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_3tiwv")
+text = "O"
+
+[node name="Button3" type="Button" parent="GridPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_3tiwv")
+text = "X"
+
+[node name="Button4" type="Button" parent="GridPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_3tiwv")
+text = "O"
+
+[node name="Button5" type="Button" parent="GridPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_3tiwv")
+text = "X"
+
+[node name="Button6" type="Button" parent="GridPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_3tiwv")
+text = "O"
+
+[node name="Button7" type="Button" parent="GridPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_3tiwv")
+text = "X"
+
+[node name="Button8" type="Button" parent="GridPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_3tiwv")
+text = "X"
+
+[node name="Button9" type="Button" parent="GridPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_3tiwv")
+text = "X"
+
+[node name="TextPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TextPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 77.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Player_1" type="Label" parent="TextPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_3jnx6")
+text = "Player : X
+"
+
+[node name="Score" type="HBoxContainer" parent="TextPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Player_1_Score" type="Label" parent="TextPanel/MarginContainer/HBoxContainer/Score"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_3jnx6")
+theme_override_colors/font_color = Color(0.22352941, 0.35686275, 1, 1)
+theme_override_font_sizes/font_size = 45
+text = "0"
+horizontal_alignment = 1
+
+[node name="Separator" type="Label" parent="TextPanel/MarginContainer/HBoxContainer/Score"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_3jnx6")
+theme_override_colors/font_color = Color(0.22352941, 0.35686275, 1, 1)
+theme_override_font_sizes/font_size = 45
+text = ":"
+horizontal_alignment = 1
+
+[node name="Player_2_Score" type="Label" parent="TextPanel/MarginContainer/HBoxContainer/Score"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_3jnx6")
+theme_override_colors/font_color = Color(0.22352941, 0.35686275, 1, 1)
+theme_override_font_sizes/font_size = 45
+text = "0"
+horizontal_alignment = 1
+
+[node name="Player_2" type="Label" parent="TextPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_3jnx6")
+text = "O : Player"
+horizontal_alignment = 2
