@@ -57,8 +57,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -320.0
-offset_right = 320.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -66,20 +64,33 @@ texture = ExtResource("2_7lq1i")
 expand_mode = 2
 
 [node name="Clouds" type="TextureRect" parent="Background"]
-layout_mode = 0
-offset_left = -716.0
-offset_top = 542.0
-offset_right = 2042.0
-offset_bottom = 1345.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -983.0
+offset_top = -519.0
+offset_right = 983.0
+grow_horizontal = 2
+grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("3_umxj1")
 
 [node name="Stars" type="TextureRect" parent="Background"]
-layout_mode = 0
-offset_left = -318.0
-offset_top = 79.0
-offset_right = 1741.0
-offset_bottom = 1139.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1029.5
+offset_top = -530.0
+offset_right = 1029.5
+offset_bottom = 530.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("7_mxmv7")
 
@@ -338,12 +349,15 @@ metadata/_edit_lock_ = true
 
 [node name="Dots" type="TextureRect" parent="Aesthetics"]
 layout_mode = 1
-anchors_preset = 13
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -865.0
-offset_right = 902.0
+anchor_bottom = 0.5
+offset_left = -883.5
+offset_top = -456.0
+offset_right = 883.5
+offset_bottom = 456.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
