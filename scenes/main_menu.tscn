@@ -1,0 +1,200 @@
+[gd_scene load_steps=16 format=3 uid="uid://dc43st8x2ob1x"]
+
+[ext_resource type="Texture2D" uid="uid://do51plbifj25w" path="res://themes/new_gradient_texture_2d.tres" id="1_8ln24"]
+[ext_resource type="Texture2D" uid="uid://bvdsocfg1lsfu" path="res://assets/image/sky layers_gradient bg.png" id="2_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://kdot0nyqpec3" path="res://assets/image/sky layers_clouds.png" id="3_oa1go"]
+[ext_resource type="Texture2D" uid="uid://dybjm8cwdg7h" path="res://assets/image/sky layers_stars.png" id="4_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://ds5do74aymav4" path="res://assets/image/sky layers_dots.png" id="5_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://dkl3desmayxha" path="res://assets/image/ticky-tacky-toe logo.png" id="6_rtw2f"]
+[ext_resource type="Theme" uid="uid://5sk8ysdmokhn" path="res://themes/label_theme.tres" id="7_oa1go"]
+[ext_resource type="Script" uid="uid://fm0xmu7dufob" path="res://scripts/main-menu.gd" id="8_tbmy8"]
+[ext_resource type="AudioStream" uid="uid://bhbgkeynlfigh" path="res://assets/music/enter-game.mp3" id="9_jk1qb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ln24"]
+texture = ExtResource("1_8ln24")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
+bg_color = Color(0.6156863, 0.3647059, 0.9882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dd4i"]
+bg_color = Color(0.52156866, 0.20784314, 0.9882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flqon"]
+bg_color = Color(0.5860801, 0.3168, 0.99, 1)
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8ln24")
+
+[node name="Gradient" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_right = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_rtw2f")
+expand_mode = 2
+
+[node name="Clouds" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = -716.0
+offset_top = 542.0
+offset_right = 2042.0
+offset_bottom = 1345.0
+mouse_filter = 2
+texture = ExtResource("3_oa1go")
+
+[node name="Stars" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 79.0
+offset_right = 1741.0
+offset_bottom = 1139.0
+mouse_filter = 2
+texture = ExtResource("4_tbmy8")
+
+[node name="Aesthetics" type="Panel" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
+metadata/_edit_lock_ = true
+
+[node name="Dots" type="TextureRect" parent="Background/Aesthetics"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -865.0
+offset_right = 902.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_jk1qb")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15664062
+anchor_top = -0.09335935
+anchor_right = 0.15664062
+anchor_bottom = -0.09335937
+offset_left = 56.5
+offset_top = 383.5
+offset_right = 1223.5
+offset_bottom = 896.5
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("6_rtw2f")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelBottom" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbmy8")
+metadata/_edit_lock_ = true
+
+[node name="Kaeri" type="Label" parent="PanelBottom"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -241.0
+offset_top = -65.0
+offset_right = 241.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("7_oa1go")
+theme_override_colors/font_color = Color(0.5252216, 0.5187, 0.91, 1)
+theme_override_font_sizes/font_size = 25
+text = "@kaeri__gg"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelBottom"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -237.0
+offset_top = -606.0
+offset_right = 245.0
+offset_bottom = -377.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelBottom/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelBottom/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="StartButton" type="Button" parent="PanelBottom/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+theme = ExtResource("7_oa1go")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_jk1qb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_flqon")
+text = "Play"
+script = ExtResource("8_tbmy8")
+
+[node name="WelcomeText" type="Label" parent="PanelBottom/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_oa1go")
+theme_override_colors/font_color = Color(0.5252216, 0.5187, 0.91, 1)
+theme_override_font_sizes/font_size = 25
+text = "Just a plain tic tac toe
+in purple background."
+horizontal_alignment = 1
+
+[node name="EnterGameSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_jk1qb")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="PanelBottom/MarginContainer/VBoxContainer/MarginContainer/StartButton" to="PanelBottom/MarginContainer/VBoxContainer/MarginContainer/StartButton" method="_on_start_button_pressed"]
+[connection signal="timeout" from="Timer" to="PanelBottom/MarginContainer/VBoxContainer/MarginContainer/StartButton" method="_on_timer_timeout"]

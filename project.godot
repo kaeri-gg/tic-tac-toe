@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="tic-tac-toe"
-run/main_scene="res://scenes/main_control.tscn"
+config/name="Ticky Tacky Toe"
+run/main_scene="uid://dc43st8x2ob1x"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
+
+[autoload]
+
+Music="*res://scenes/music.tscn"
 
 [display]
 
