@@ -1,15 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://byrhgcx23soud"]
+[gd_scene load_steps=16 format=3 uid="uid://byrhgcx23soud"]
 
 [ext_resource type="Theme" uid="uid://bnwlm45gyye4k" path="res://themes/button_theme.tres" id="1_3tiwv"]
 [ext_resource type="Texture2D" uid="uid://do51plbifj25w" path="res://themes/new_gradient_texture_2d.tres" id="1_422ur"]
 [ext_resource type="Script" uid="uid://dytmdsosylnsj" path="res://scripts/grid_container.gd" id="1_d73ye"]
 [ext_resource type="Theme" uid="uid://5sk8ysdmokhn" path="res://themes/label_theme.tres" id="2_3jnx6"]
+[ext_resource type="Texture2D" uid="uid://bvdsocfg1lsfu" path="res://assets/image/sky layers_gradient bg.png" id="2_7lq1i"]
+[ext_resource type="Texture2D" uid="uid://kdot0nyqpec3" path="res://assets/image/sky layers_clouds.png" id="3_umxj1"]
+[ext_resource type="Texture2D" uid="uid://dybjm8cwdg7h" path="res://assets/image/sky layers_stars.png" id="7_mxmv7"]
+[ext_resource type="Texture2D" uid="uid://ds5do74aymav4" path="res://assets/image/sky layers_dots.png" id="8_6cik6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8jdwr"]
 texture = ExtResource("1_422ur")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d73ye"]
 draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy4ud"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umxj1"]
+bg_color = Color(0.6156863, 0.3647059, 0.9882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cik6"]
+bg_color = Color(0.52156866, 0.20784314, 0.9882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxmv7"]
+bg_color = Color(0.5860801, 0.3168, 0.99, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lq1i"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="MainControl" type="Control"]
 layout_mode = 3
@@ -18,6 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1
@@ -26,7 +46,40 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_8jdwr")
+metadata/_edit_lock_ = true
+
+[node name="Gradient" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_right = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_7lq1i")
+expand_mode = 2
+
+[node name="Clouds" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = -716.0
+offset_top = 542.0
+offset_right = 2042.0
+offset_bottom = 1345.0
+mouse_filter = 2
+texture = ExtResource("3_umxj1")
+
+[node name="Stars" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 79.0
+offset_right = 1741.0
+offset_bottom = 1139.0
+mouse_filter = 2
+texture = ExtResource("7_mxmv7")
 
 [node name="GridPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -41,6 +94,7 @@ offset_right = 375.0
 offset_bottom = 375.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="GridPanel"]
 layout_mode = 1
@@ -130,14 +184,15 @@ theme = ExtResource("1_3tiwv")
 theme_override_colors/font_color = Color(0.94509804, 0.7607843, 0.8392157, 1)
 text = "X"
 
-[node name="TextPanelTop" type="Panel" parent="."]
+[node name="PanelTop" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d73ye")
+metadata/_edit_lock_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="TextPanelTop"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelTop"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -147,14 +202,14 @@ theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextPanelTop/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelTop/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextPanelTop/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelTop/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Player_1" type="Label" parent="TextPanelTop/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Player_1" type="Label" parent="PanelTop/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
@@ -162,10 +217,10 @@ theme = ExtResource("2_3jnx6")
 text = "Player : X"
 vertical_alignment = 1
 
-[node name="Score" type="HBoxContainer" parent="TextPanelTop/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Score" type="HBoxContainer" parent="PanelTop/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Player_1_Score" type="Label" parent="TextPanelTop/MarginContainer/VBoxContainer/HBoxContainer/Score"]
+[node name="Player_1_Score" type="Label" parent="PanelTop/MarginContainer/VBoxContainer/HBoxContainer/Score"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -175,7 +230,7 @@ theme_override_colors/font_color = Color(0.33951068, 0.2790801, 0.71305114, 1)
 text = "0"
 horizontal_alignment = 1
 
-[node name="Separator" type="Label" parent="TextPanelTop/MarginContainer/VBoxContainer/HBoxContainer/Score"]
+[node name="Separator" type="Label" parent="PanelTop/MarginContainer/VBoxContainer/HBoxContainer/Score"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
@@ -184,7 +239,7 @@ theme_override_colors/font_color = Color(0.33951068, 0.2790801, 0.71305114, 1)
 text = ":"
 horizontal_alignment = 1
 
-[node name="Player_2_Score" type="Label" parent="TextPanelTop/MarginContainer/VBoxContainer/HBoxContainer/Score"]
+[node name="Player_2_Score" type="Label" parent="PanelTop/MarginContainer/VBoxContainer/HBoxContainer/Score"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -194,7 +249,7 @@ theme_override_colors/font_color = Color(0.33951068, 0.2790801, 0.71305114, 1)
 text = "0"
 horizontal_alignment = 1
 
-[node name="Player_2" type="Label" parent="TextPanelTop/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Player_2" type="Label" parent="PanelTop/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
@@ -203,12 +258,12 @@ text = "O : Player"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="TextPanelTop/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelTop/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 70
 theme_override_constants/margin_bottom = 30
 
-[node name="Message" type="Label" parent="TextPanelTop/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="Message" type="Label" parent="PanelTop/MarginContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_3jnx6")
@@ -216,37 +271,79 @@ theme_override_colors/font_color = Color(0.01525536, 7.219613e-08, 0.2028073, 1)
 text = "Player X wins!"
 horizontal_alignment = 1
 
-[node name="TextPanelBottom" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_d73ye")
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qy4ud")
 
-[node name="MarginContainer" type="MarginContainer" parent="TextPanelBottom"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -223.0
-offset_top = -184.0
-offset_right = 223.0
+offset_left = -241.0
+offset_top = -181.0
+offset_right = 241.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_bottom = 35
 
-[node name="Reset" type="Button" parent="TextPanelBottom/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="Reset" type="Button" parent="Panel/MarginContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(50, 100)
 layout_mode = 2
 theme = ExtResource("2_3jnx6")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_umxj1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6cik6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxmv7")
 text = "Reset"
+
+[node name="Instructions" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_3jnx6")
+theme_override_colors/font_color = Color(0.5252216, 0.5187, 0.91, 1)
+theme_override_font_sizes/font_size = 25
+text = "first to move is X. 
+take turns by mouse click."
+horizontal_alignment = 1
+
+[node name="Aesthetics" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7lq1i")
+metadata/_edit_lock_ = true
+
+[node name="Dots" type="TextureRect" parent="Aesthetics"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -865.0
+offset_right = 902.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_6cik6")
+metadata/_edit_lock_ = true
