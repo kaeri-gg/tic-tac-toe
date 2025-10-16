@@ -43,7 +43,6 @@ func _ready():
 			bind_event_to(node)
 	reset_button.pressed.connect(reset_game)
 	
-
 # this function will be called for all buttons
 func on_button_pressed(button: Button):
 	# prevents multiple clicks!
@@ -51,21 +50,22 @@ func on_button_pressed(button: Button):
 		return
 	if game_ended :
 		return 
-		
+	
+	var symbol = button.text # either O or X
 	# assign symbol to a button	
 	button.text = get_symbol()
 	click_sfx.play()
 	rotate_turn()
 	
 	# evaluate winner
-	var winners_indexes = get_winner_indexes(button.text)
+	var winners_indexes = get_winner_indexes(symbol)
 	var is_winner = winners_indexes.size() > 0
 	var is_tie = turn == 9
 	
 	if is_winner:
 		win_sfx.play()
-		add_score(button)
-		update_score()
+		update_score_value_by(symbol)
+		update_score_ui()
 		highlight(winners_indexes)
 		end_game()
 		
@@ -111,13 +111,13 @@ func get_winner_indexes(symbol: String) -> Array:
 	# no wins
 	return []
 		
-func add_score(button: Button) -> void:
-	if button.text == PLAYER1_SYMBOL:
+func update_score_value_by(symbol: String) -> void:
+	if symbol == PLAYER1_SYMBOL:
 		player1_score += 1
 	else:
 		player2_score += 1
 		
-func update_score() -> void:
+func update_score_ui() -> void:
 	player_1_score_ui.text = str(player1_score)
 	player_2_score_ui.text = str(player2_score)
 	
