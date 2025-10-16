@@ -231,13 +231,6 @@ libraries = {
 }
 autoplay = "opacity"
 
-[node name="EnterGameSFX" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("9_jk1qb")
-
-[node name="Timer" type="Timer" parent="."]
-unique_name_in_owner = true
-
 [node name="GridPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -361,5 +354,11 @@ layout_mode = 2
 texture = ExtResource("11_lgwnu")
 stretch_mode = 2
 
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="EnterGameSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_jk1qb")
+
 [connection signal="timeout" from="Timer" to="PanelBottom/MarginContainer/VBoxContainer/MarginContainer/StartButton" method="_on_timer_timeout"]
-[connection signal="pressed" from="PanelBottom/MarginContainer/VBoxContainer/MarginContainer/StartButton" to="PanelBottom/MarginContainer/VBoxContainer/MarginContainer/StartButton" method="_on_start_button_pressed"]

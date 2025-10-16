@@ -57,6 +57,7 @@ func on_button_pressed(button: Button):
 	click_sfx.play()
 	rotate_turn()
 	
+	# evaluate winner
 	var winners_indexes = get_winner_indexes(button.text)
 	var is_winner = winners_indexes.size() > 0
 	var is_tie = turn == 9
@@ -93,12 +94,13 @@ func get_symbol() -> String:
 func rotate_turn() -> void:
 	turn += 1
 	
+# symbol is X or O
 func get_winner_indexes(symbol: String) -> Array:
 	for WIN in WINS :
 		
 		#var count : int = 0
 		var wins : Array = []
-		for index in WIN :
+		for index in WIN : # [0, 1, 2]
 			if buttons[index].text == symbol: 
 				#count += 1
 				wins.push_back(index)

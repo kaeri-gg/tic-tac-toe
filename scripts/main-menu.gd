@@ -9,9 +9,9 @@ const game_scene: = preload("res://scenes/main_control.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	start_button.pressed.connect(_on_start_button_pressed)
+	start_button.pressed.connect(on_start_button_pressed)
 
-func _on_start_button_pressed() -> void:
+func on_start_button_pressed() -> void:
 	enter_game_sfx.play()
 	start_button.text = "Loading..."
 	timer.start(1)
