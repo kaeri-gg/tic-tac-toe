@@ -15,6 +15,21 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ln24"]
 texture = ExtResource("1_8ln24")
 
+[sub_resource type="Animation" id="Animation_qy4ud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_6cik6"]
 resource_name = "pulse"
 length = 2.0
@@ -32,7 +47,16 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.21960784), Color(1, 1, 1, 0.9137255)]
 }
 
-[sub_resource type="Animation" id="Animation_qy4ud"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kb5we"]
+_data = {
+&"RESET": SubResource("Animation_qy4ud"),
+&"pulse": SubResource("Animation_6cik6")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_din1t"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -46,15 +70,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kb5we"]
-_data = {
-&"RESET": SubResource("Animation_qy4ud"),
-&"pulse": SubResource("Animation_6cik6")
-}
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Animation" id="Animation_f04t6"]
 resource_name = "opacity"
@@ -71,21 +86,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.09411765), Color(1, 1, 1, 0.85490197), Color(1, 1, 1, 0.27058825)]
-}
-
-[sub_resource type="Animation" id="Animation_din1t"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_deieg"]
@@ -231,7 +231,7 @@ libraries = {
 }
 autoplay = "opacity"
 
-[node name="GridPanel" type="Panel" parent="."]
+[node name="Logo" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -246,7 +246,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rcqid")
 
-[node name="MarginContainer" type="MarginContainer" parent="GridPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Logo"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -256,7 +256,7 @@ grow_vertical = 2
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="Logo" type="TextureRect" parent="GridPanel/MarginContainer"]
+[node name="Image" type="TextureRect" parent="Logo/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("6_rtw2f")
 expand_mode = 5

@@ -5,7 +5,7 @@ extends Control
 @onready var enter_game_sfx: AudioStreamPlayer2D = %EnterGameSFX
 @onready var timer: Timer = %Timer
 
-const game_scene: = preload("res://scenes/main_control.tscn")
+const game_scene: = preload("res://scenes/game.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
