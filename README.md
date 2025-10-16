@@ -9,9 +9,7 @@ The game follows the classic Tic Tac Toe rules: players take turns marking space
 
 
 ## 🚧 Project Status
-### 🧱 In Progress Work
-The core gameplay is complete — grid detection, win checking, reset functionality, and a working main menu are all implemented.  
-Future updates will focus on adding player modes (e.g., Player vs AI) and improved UI animations.
+The core gameplay is complete — grid detection, win checking, reset functionality, and a working main menu are all implemented. Future updates will focus on adding player modes (e.g., Player vs AI) and improved UI animations.
 
 
 ## 🕹️ Game Features & Requirements
@@ -38,9 +36,9 @@ Future updates will focus on adding player modes (e.g., Player vs AI) and improv
 
 
 ## 🧩 Future Enhancements
-- 🤖 **Single Player Mode (AI):** Add an opponent that plays automatically using basic logic.  
-- 🎨 **Animated UI:** Add subtle transitions and sounds for marking tiles or winning.  
-- 📱 **Responsive Layout:** Adjust board size for mobile viewports.  
+- **Single Player Mode (AI):** Add an opponent that plays automatically using basic logic.  
+- **Animated UI:** Add subtle transitions and sounds for marking tiles or winning.  
+- **Responsive Layout:** Adjust board size for mobile viewports.  
 
 
 
@@ -53,7 +51,7 @@ Future updates will focus on adding player modes (e.g., Player vs AI) and improv
 
 
 ## 🧾 Credits
-Game created and designed by me, **Kaeri** 🎨  
+Game created and designed by me, **Kaeri** 
 Font credits goes to Google Fonts
 Music from #Uppbeat (free for Creators!): https://uppbeat.io/t/pecan-pie/pixel-drift
 License code: YIEYEUXZPMDVWHZA
@@ -73,9 +71,6 @@ Feel free to fork, modify, and experiment with it — just credit the original a
 ## 🌐 GitHub Pages Deployment
 This project is configured for automatic deployment to **GitHub Pages**.
 
-
-
-## 📋 Deployment Setup
 ### Prerequisites
 - Repository must be **public** (for free GitHub Pages hosting).  
 - GitHub Pages must be **enabled** in repository settings.  
@@ -85,7 +80,6 @@ This project is configured for automatic deployment to **GitHub Pages**.
 2. Set **Source** to “Deploy from a branch.”  
 3. Choose the **main** branch and the **root** folder.  
 4. The game auto-deploys on every push to main.  
-
 
 
 ## ⚙️ Export Configuration (Important!)
@@ -103,4 +97,5 @@ const GODOT_THREADS_ENABLED = false;
 ```javascript
 "ensureCrossOriginIsolationHeaders": false
 ```
+
 
