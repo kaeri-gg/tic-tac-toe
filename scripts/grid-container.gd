@@ -51,9 +51,9 @@ func on_button_pressed(button: Button):
 	if game_ended :
 		return 
 	
-	var symbol = button.text # either O or X
+	var symbol = get_symbol() # either O or X
 	# assign symbol to a button	
-	button.text = get_symbol()
+	button.text = symbol
 	click_sfx.play()
 	rotate_turn()
 	
