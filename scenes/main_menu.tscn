@@ -1,20 +1,98 @@
-[gd_scene load_steps=17 format=3 uid="uid://dc43st8x2ob1x"]
+[gd_scene load_steps=25 format=3 uid="uid://dc43st8x2ob1x"]
 
 [ext_resource type="Texture2D" uid="uid://do51plbifj25w" path="res://themes/new_gradient_texture_2d.tres" id="1_8ln24"]
 [ext_resource type="Texture2D" uid="uid://bvdsocfg1lsfu" path="res://assets/image/sky layers_gradient bg.png" id="2_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://kdot0nyqpec3" path="res://assets/image/sky layers_clouds.png" id="3_oa1go"]
+[ext_resource type="Texture2D" uid="uid://subl37a7e8nx" path="res://assets/image/sky layers_clouds_white.png" id="4_5dd4i"]
 [ext_resource type="Texture2D" uid="uid://dybjm8cwdg7h" path="res://assets/image/sky layers_stars.png" id="4_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://ds5do74aymav4" path="res://assets/image/sky layers_dots.png" id="5_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://dkl3desmayxha" path="res://assets/image/ticky-tacky-toe logo.png" id="6_rtw2f"]
 [ext_resource type="Theme" uid="uid://5sk8ysdmokhn" path="res://themes/label_theme.tres" id="7_oa1go"]
 [ext_resource type="Script" uid="uid://fm0xmu7dufob" path="res://scripts/main-menu.gd" id="8_tbmy8"]
 [ext_resource type="AudioStream" uid="uid://bhbgkeynlfigh" path="res://assets/music/enter-game.mp3" id="9_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://bth7myhukn1j4" path="res://icon.svg" id="11_lgwnu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ln24"]
 texture = ExtResource("1_8ln24")
 
+[sub_resource type="Animation" id="Animation_6cik6"]
+resource_name = "pulse"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.01, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.21960784), Color(1, 1, 1, 0.9137255)]
+}
+
+[sub_resource type="Animation" id="Animation_qy4ud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kb5we"]
+_data = {
+&"RESET": SubResource("Animation_qy4ud"),
+&"pulse": SubResource("Animation_6cik6")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_f04t6"]
+resource_name = "opacity"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.01, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.09411765), Color(1, 1, 1, 0.85490197), Color(1, 1, 1, 0.27058825)]
+}
+
+[sub_resource type="Animation" id="Animation_din1t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_deieg"]
+_data = {
+&"RESET": SubResource("Animation_din1t"),
+&"opacity": SubResource("Animation_f04t6")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcqid"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -77,6 +155,26 @@ mouse_filter = 2
 texture = ExtResource("3_oa1go")
 stretch_mode = 3
 
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -560.0
+offset_top = -302.0
+offset_right = 560.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 300
+
+[node name="Clouds2" type="TextureRect" parent="Background/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_5dd4i")
+stretch_mode = 3
+
 [node name="Stars" type="TextureRect" parent="Background"]
 layout_mode = 1
 anchors_preset = 8
@@ -93,6 +191,12 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_tbmy8")
 expand_mode = 2
+
+[node name="Pulse" type="AnimationPlayer" parent="Background/Stars"]
+libraries = {
+&"": SubResource("AnimationLibrary_kb5we")
+}
+autoplay = "pulse"
 
 [node name="Aesthetics" type="Panel" parent="Background"]
 layout_mode = 1
@@ -111,15 +215,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -883.5
+offset_left = -883.0
 offset_top = -456.0
-offset_right = 883.5
+offset_right = 884.0
 offset_bottom = 456.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("5_jk1qb")
 expand_mode = 2
+
+[node name="FadePulse" type="AnimationPlayer" parent="Background/Aesthetics/Dots"]
+libraries = {
+&"": SubResource("AnimationLibrary_deieg")
+}
+autoplay = "opacity"
 
 [node name="EnterGameSFX" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
@@ -234,6 +344,22 @@ theme_override_font_sizes/font_size = 25
 text = "Just a plain tic tac toe
 in purple background."
 horizontal_alignment = 1
+
+[node name="Icon" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 100
+
+[node name="Image" type="TextureRect" parent="Icon"]
+layout_mode = 2
+texture = ExtResource("11_lgwnu")
+stretch_mode = 2
 
 [connection signal="timeout" from="Timer" to="PanelBottom/MarginContainer/VBoxContainer/MarginContainer/StartButton" method="_on_timer_timeout"]
 [connection signal="pressed" from="PanelBottom/MarginContainer/VBoxContainer/MarginContainer/StartButton" to="PanelBottom/MarginContainer/VBoxContainer/MarginContainer/StartButton" method="_on_start_button_pressed"]

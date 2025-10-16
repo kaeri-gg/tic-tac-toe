@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://byrhgcx23soud"]
+[gd_scene load_steps=25 format=3 uid="uid://byrhgcx23soud"]
 
 [ext_resource type="Theme" uid="uid://bnwlm45gyye4k" path="res://themes/button_theme.tres" id="1_3tiwv"]
 [ext_resource type="Texture2D" uid="uid://do51plbifj25w" path="res://themes/new_gradient_texture_2d.tres" id="1_422ur"]
@@ -14,6 +14,44 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8jdwr"]
 texture = ExtResource("1_422ur")
+
+[sub_resource type="Animation" id="Animation_6cik6"]
+resource_name = "pulse"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.01, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.21960784), Color(1, 1, 1, 0.9137255)]
+}
+
+[sub_resource type="Animation" id="Animation_qy4ud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kb5we"]
+_data = {
+&"RESET": SubResource("Animation_qy4ud"),
+&"pulse": SubResource("Animation_6cik6")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d73ye"]
 draw_center = false
@@ -32,6 +70,44 @@ bg_color = Color(0.5860801, 0.3168, 0.99, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lq1i"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_f04t6"]
+resource_name = "opacity"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.01, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.09411765), Color(1, 1, 1, 0.85490197), Color(1, 1, 1, 0.27058825)]
+}
+
+[sub_resource type="Animation" id="Animation_din1t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_deieg"]
+_data = {
+&"RESET": SubResource("Animation_din1t"),
+&"opacity": SubResource("Animation_f04t6")
+}
 
 [node name="MainControl" type="Control"]
 layout_mode = 3
@@ -86,15 +162,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1029.5
-offset_top = -530.0
-offset_right = 1029.5
-offset_bottom = 530.0
+offset_left = -821.0
+offset_top = -463.0
+offset_right = 821.0
+offset_bottom = 463.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 texture = ExtResource("7_mxmv7")
 expand_mode = 2
+
+[node name="Pulse" type="AnimationPlayer" parent="Background/Stars"]
+libraries = {
+&"": SubResource("AnimationLibrary_kb5we")
+}
+autoplay = "pulse"
 
 [node name="GridPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -366,6 +447,12 @@ mouse_filter = 2
 texture = ExtResource("8_6cik6")
 expand_mode = 2
 metadata/_edit_lock_ = true
+
+[node name="FadePulse" type="AnimationPlayer" parent="Aesthetics/Dots"]
+libraries = {
+&"": SubResource("AnimationLibrary_deieg")
+}
+autoplay = "opacity"
 
 [node name="ClickSFX" type="AudioStreamPlayer2D" parent="Aesthetics"]
 unique_name_in_owner = true
